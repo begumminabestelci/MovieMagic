@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendation Questions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='question.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <a href="/"><img src="{{ url_for('static', filename='logo.png') }}" alt="Logo"></a>
+            <a href="/"><span>MovieMagic</span></a>
+        </div>
+        <div class="nav-links">
+            <a href="/movie">Top 100 Voted Movies</a>
+            <div class="dropdown">
+                <button class="dropbtn">Top 3 Genres</button>
+                <div class="dropdown-content">
+                    <a href="/genres/Action">Action</a>
+                    <a href="/genres/Comedy">Comedy</a>
+                    <a href="/genres/Animation">Animation</a>
+                </div>
+            </div>
+
+            <a href="/blog">Top 100 Popular Movies</a>
+            <a href="/signin">Sign up</a>
+            <a href="/login">Sign in</a>
+        </div>
+    </div>
+    <div class="question-container">
+        <h2>1. How old would you like the movie to be?</h2>
+        <form action="{{ url_for('next_question') }}" method="POST">
+            <div class="option">
+                <input type="radio" id="any" name="age" value="any" required>
+                <label for="any">Doesn't matter.</label>
+            </div>
+            <div class="option">
+                <input type="radio" id="3years" name="age" value="3years" required>
+                <label for="3years">Published in the last 3 years.</label>
+            </div>
+            <div class="option">
+                <input type="radio" id="5years" name="age" value="5years" required>
+                <label for="5years">Published in the last 5 years.</label>
+            </div>
+            <div class="option">
+                <input type="radio" id="10years" name="age" value="10years" required>
+                <label for="10years">Published in the last 10 years.</label>
+            </div>
+            <div class="option">
+                <input type="radio" id="20years" name="age" value="20years" required>
+                <label for="20years">Published in the last 20 years.</label>
+            </div>
+            <button type="submit">Next</button required>
+        </form>
+        <a href="/" class="back-link">Back</a>
+    </div>
+</body>
+</html>

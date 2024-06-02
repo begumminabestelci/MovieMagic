@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Occasion</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='occasion.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <a href="/"><img src="{{ url_for('static', filename='logo.png') }}" alt="Logo"></a>
+            <a href="/"><span>MovieMagic</span></a>
+        </div>
+        <div class="nav-links">
+            <a href="/movie">Top 100 Voted Movies</a>
+            <div class="dropdown">
+                <button class="dropbtn">Top 3 Genres</button>
+                <div class="dropdown-content">
+                    <a href="/genres/Action">Action</a>
+                    <a href="/genres/Comedy">Comedy</a>
+                    <a href="/genres/Animation">Animation</a>
+                </div>
+            </div>
+
+            <a href="/blog">Top 100 Popular Movies</a>
+            <a href="/signin">Sign up</a>
+            <a href="/login">Sign in</a>
+        </div>
+        
+    </div>
+    <div class="occasion-container">
+        <h2>2. What comes closest to your occasion?</h2>
+        <form action="{{ url_for('submit_occasion') }}" method="POST">
+            <div class="option">
+                <input type="radio" id="myself" name="occasion" value="myself" required>
+                <label for="myself">Just watching a movie by myself.</label>
+            </div>
+            <div class="option">
+                <input type="radio" id="date" name="occasion" value="date" required>
+                <label for="date">Movie Date.</label>
+            </div>
+            <div class="option">
+                <input type="radio" id="friends" name="occasion" value="friends" required>
+                <label for="friends">Movie Night with friends.</label>
+            </div>
+            <div class="option">
+                <input type="radio" id="partner" name="occasion" value="partner" required>
+                <label for="partner">Date Night with boyfriend or girlfriend.</label>
+            </div>
+            <div class="option">
+                <input type="radio" id="family" name="occasion" value="family" required>
+                <label for="family">Watching a movie with family or relatives.</label>
+            </div>
+            <button type="submit" required>Next</button>
+        </form>
+        <a href="{{ url_for('question') }}" class="back-link">Back</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('./img1.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 80px; /* Increase logo size */
+    margin-right: 15px; /* Adjust spacing */
+}
+
+.logo span {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.logo a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    padding-right: 5%;
+    text-wrap: nowrap;
+}
+
+.occasion-container {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    margin: 100px auto;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 150px;
+}
+
+.occasion-container h2 {
+    margin-bottom: 20px;
+}
+
+.option {
+    margin: 10px 0;
+    text-align: left;
+}
+
+.option input[type="radio"] {
+    margin-right: 10px;
+}
+
+button {
+    background-color: #ff5733;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #c43d23;
+}
+
+.back-link {
+    display: block;
+    margin-top: 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}

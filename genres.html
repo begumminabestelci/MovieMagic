@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Genres</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='genres.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <a href="/"><img src="{{ url_for('static', filename='logo.png') }}" alt="Logo"></a>
+            <a href="/"><span>MovieMagic</span></a>
+        </div>
+        <div class="nav-links">
+            <a href="/movie">Top 100 Voted Movies</a>
+            <div class="dropdown">
+                <button class="dropbtn">Top 3 Genres</button>
+                <div class="dropdown-content">
+                    <a href="/genres/Action">Action</a>
+                    <a href="/genres/Comedy">Comedy</a>
+                    <a href="/genres/Animation">Animation</a>
+                </div>
+            </div>
+
+            <a href="/blog">Top 100 Popular Movies</a>
+            <a href="/signin">Sign up</a>
+            <a href="/login">Sign in</a>
+        </div>
+        
+    </div>
+    <div class="genre-container">
+        <h2>3. Please choose any genre you're interested in.</h2>
+        <h3>If you do not make a selection, recommendations will be made based on Top 100 Popular Movies.</h3>
+        <form action="{{ url_for('submit_genres') }}" method="POST">
+            {% for genre in genres %}
+                {% if genre not in ["Disaster", "Biography"] %}
+                <div class="option">
+                    <input type="checkbox" id="{{ genre }}" name="genres" value="{{ genre }}" >
+                    <label for="{{ genre }}">{{ genre }}</label>
+                </div>
+                {% endif %}
+            {% endfor %}
+            <button type="submit" >Next</button>
+        </form>
+        <a href="{{ url_for('occasion') }}" class="back-link">Back</a>
+    </div>
+</body>
+</html>
