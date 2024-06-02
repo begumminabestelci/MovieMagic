@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendation Engine</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <a href="/"><img src="{{ url_for('static', filename='logo.png') }}" alt="Logo"></a>
+            <a href="/"><span>MovieMagic</span></a>
+        </div>
+        <div class="nav-links">
+            <a href="/movie">Top 100 Voted Movies</a>
+            <div class="dropdown">
+                <button class="dropbtn">Top 3 Genres</button>
+                <div class="dropdown-content">
+                    <a href="/genres/Action">Action</a>
+                    <a href="/genres/Comedy">Comedy</a>
+                    <a href="/genres/Animation">Animation</a>
+                </div>
+            </div>
+            <a href="/blog">Top 100 Popular Movies</a>
+            <a href="/signin">Sign up</a>
+            <a href="/login">Sign in</a>
+        </div>
+        
+    </div>
+    <div class="hero">
+        <h1>MOVIE RECOMMENDATION SYSTEM</h1>
+        <p>You can't decide between thousands of movies? Let the MovieMagic choose your movie!</p>
+        <a href="/question"><button >Start Now</button></a>
+    </div>
+</body>
+</html>

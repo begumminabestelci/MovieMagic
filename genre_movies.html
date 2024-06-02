@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ genre }} Movies</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='blog.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <a href="/"><img src="{{ url_for('static', filename='logo.png') }}" alt="Logo"></a>
+            <a href="/"><span>MovieMagic</span></a>
+        </div>
+        <div class="nav-links">
+            <a href="/movie">Top 100 Voted Movies</a>
+            <div class="dropdown">
+                <button class="dropbtn">Top 3 Genres</button>
+                <div class="dropdown-content">
+                    <a href="/genres/Action">Action</a>
+                    <a href="/genres/Comedy">Comedy</a>
+                    <a href="/genres/Animation">Animation</a>
+                </div>
+            </div>
+
+            <a href="/blog">Top 100 Popular Movies</a>
+            <a href="/signin">Sign up</a>
+            <a href="/login">Sign in</a>
+        </div>
+    </div>
+    <div class="container">
+        <h1>Top 100 {{ genre }} Movies</h1>
+        <div class="movies-grid">
+            {% for movie in movies %}
+                <div class="movie-card">
+                    <img src="{{ movie.image_url }}" alt="Movie Poster">
+                    <h3>{{ movie.title }}</h3>
+                    <div class="buttons">
+                        <a href="{{ movie.trailer_url }}" class="button" target="_blank">Trailer</a>
+                        <a href="{{ movie.watch_url }}" class="button" target="_blank">Watch on</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script>
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop) {
+                navbar.style.top = '-80px'; // Adjust this value as needed to hide the navbar
+            } else {
+                navbar.style.top = '0';
+            }
+            lastScrollTop = scrollTop;
+        });
+    </script>
+</body>
+</html>
