@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendation Engine</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+
+.container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .signin-container {
+            background-color: rgba(0, 0, 0, 0.883);
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .signin-container h2 {
+            margin-bottom: 20px;
+        }
+
+        .signin-container label {
+            display: block;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+
+        .signin-container input[type="text"],
+        .signin-container input[type="password"],
+        .signin-container button {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .signin-container input[type="text"],
+        .signin-container input[type="password"] {
+            background-color: #fff;
+            color: #000;
+        }
+
+        .signin-container button {
+            background-color: #ff5733;
+            color: white;
+            cursor: pointer;
+        }
+
+        .signin-container button:hover {
+            background-color: darkred;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <a href="/"><img src="{{ url_for('static', filename='logo.png') }}" alt="Logo"></a>
+            <a href="/"><span>MovieMagic</span></a>
+        </div>
+        <div class="nav-links">
+            <a href="/movie">Top 100 Voted Movies</a>
+            <div class="dropdown">
+                <button class="dropbtn">Top 3 Genres</button>
+                <div class="dropdown-content">
+                    <a href="/genres/Action">Action</a>
+                    <a href="/genres/Comedy">Comedy</a>
+                    <a href="/genres/Animation">Animation</a>
+                </div>
+            </div>
+            <a href="/blog">Top 100 Popular Movies</a>
+            <a href="/signin">Sign up</a>
+            <a href="/login">Sign in</a>
+        </div>
+
+    </div>
+
+
+
+
+    <div class="container">
+        <div class="signin-container">
+            <h2>Sign up</h2>
+            <form action="/signin" method="POST">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Sign up</button>
+            </form>
+            <a href="/" class="back-link">Back to Home</a>
+        </div>
+    </div>
+
+    
+    
+</body>
+</html>
