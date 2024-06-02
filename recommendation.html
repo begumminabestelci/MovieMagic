@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='recommendation.css') }}">
+</head>
+<body>
+    <div class="recommendation-container">
+        <h2>Recommended for you:</h2>
+        <div class="movie-box">
+            <img src="{{ movie.image_url }}" alt="Movie Poster">
+            <div class="movie-details">
+                <h3>{{ movie.title }}</h3>
+                <p>{{ movie.overview }}</p>
+                <div class="buttons">
+                    <a href="{{ movie.trailer_url }}" class="button">Trailer</a>
+                    <a href="{{ movie.watch_url }}" class="button">Watch on</a>
+                    <a href="{{ url_for('index') }}" class="button">Back to Home Page</a>
+                </div>
+                <a href="{{ url_for('next_recommendation') }}" class="button">Get Another Recommendation</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
